@@ -41,12 +41,12 @@ By bringing together videos, activities, competitions, and special moments, the 
   <img src="https://skillicons.dev/icons?i=html,css,js,vercel,git,github&theme=dark" alt="Tech Stack">
 </p>
 
-- **HTML5** — Website structure and content.
-- **CSS3** — Styling, animations, and responsive layouts.
-- **JavaScript** — Interactive elements and website functionality.
-- **Responsive Design** — Optimized for desktop, tablet, and mobile devices.
-- **Vercel** — Website deployment and hosting.
-- **Git & GitHub** — Version control and project management.
+- **HTML5**
+- **CSS3**
+- **JavaScript**
+- **Responsive Design**
+- **Vercel**
+- **Git & GitHub**
 
 ---
 
