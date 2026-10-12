@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLS Juniors 2026</title>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cairo:wght@700;800;900&family=Cinzel:wght@400;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Preload all images for instant display -->
+</head>
+
+<body>
+
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <div class="bg-layer"></div>
+  <div class="bg-particles" id="particles"></div>
+
+  <div class="page">
+
+    <nav class="top-nav">
+      <div class="nav-logo" onclick="goHome()" style="cursor:pointer;">B<span>·</span>L<span>·</span>S</div>
+      <div class="nav-buttons">
+        <button class="nav-btn active" data-text="Founders" onclick="showSection('owners', this)">Founders</button>
+        <button class="nav-btn" data-text="Juniors" onclick="showSection('juniors', this)">Juniors</button>
+        <button class="nav-btn" data-text="Memories" onclick="openMemoriesPlayer()">Memories</button>
+        <button class="nav-btn" data-text="IG Link" onclick="showSection('contact', this)">Links</button>
+        <button class="nav-btn" data-text="ElBayan League" onclick="showSection('elbayan', this)">ElBayan
+          League</button>
+        <button class="nav-btn the-end-btn" onclick="openCredits()">The End</button>
+      </div>
+    </nav>
+
+    <!-- ── MOBILE BOTTOM NAV ── -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+      <button class="mob-nav-btn active" id="mob-owners" onclick="showSection('owners', this, true)">
+        <div class="mob-icon-wrap"><span class="mob-nav-icon">
+            <svg viewBox="0 0 100 100" fill="currentColor" stroke="none">
+              <rect x="10" y="78" width="80" height="14" rx="4" />
+              <circle cx="50" cy="13" r="7" />
+              <path d="M8,30 Q10,32 20,65 L80,65 Q90,32 92,30 L70,52 L50,16 L30,52 Z" />
+            </svg>
+          </span></div>
+        <span class="mob-nav-label">Founders</span>
+      </button>
+      <button class="mob-nav-btn" id="mob-juniors" onclick="showSection('juniors', this, true)">
+        <div class="mob-icon-wrap"><span class="mob-nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+            </svg>
+          </span></div>
+        <span class="mob-nav-label">Juniors</span>
+      </button>
+      <button class="mob-nav-btn" id="mob-elbayan" onclick="showSection('elbayan', this, true)">
+        <div class="mob-icon-wrap"><span class="mob-nav-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <!-- cup body -->
+              <path d="M7 3h10v8a5 5 0 0 1-5 5 5 5 0 0 1-5-5V3z" />
+              <!-- handles -->
+              <path d="M7 5H5a2 2 0 0 0-2 2v1a3 3 0 0 0 3 3h1" />
+              <path d="M17 5h2a2 2 0 0 1 2 2v1a3 3 0 0 1-3 3h-1" />
+              <!-- stem -->
+              <path d="M12 16v3" />
+              <!-- base same width as cup opening (x=7 to x=17) -->
+              <path d="M7 19h10" />
+            </svg>
+          </span></div>
+        <span class="mob-nav-label">League</span>
+      </button>
+      <button class="mob-nav-btn" id="mob-gallery" onclick="openMemoriesPlayer()">
+        <div class="mob-icon-wrap"><span class="mob-nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="3" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+          </span></div>
+        <span class="mob-nav-label">Memories</span>
+      </button>
+      <button class="mob-nav-btn" id="mob-contact" onclick="showSection('contact', this, true)">
+        <div class="mob-icon-wrap"><span class="mob-nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </span></div>
+        <span class="mob-nav-label">Instagram</span>
+      </button>
+      <button class="mob-nav-btn mob-end-btn" onclick="openCredits()">
+        <div class="mob-icon-wrap"><span class="mob-nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </span></div>
+        <span class="mob-nav-label">The End</span>
+      </button>
+    </nav>
+
+    <section class="section visible" id="owners">
+      <div class="hero-section">
+        <div class="hero-year">2026</div>
+        <div class="hero-title">Juniors</div>
+        <div class="hero-divider"></div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card founder-card">
+          <div class="card-photo-placeholder"></div>
+          <div class="card-body">
+            <div class="card-name">Name</div>
+            <a class="card-insta-btn">
+              <svg class="insta-icon" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+              </svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+        <div class="card founder-card">
+          <div class="card-photo-placeholder"></div>
+          <div class="card-body">
+            <div class="card-name">Name</div>
+            <a class="card-insta-btn">
+              <svg class="insta-icon" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+              </svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+        <div class="card founder-card">
+          <div class="card-photo-placeholder"></div>
+          <div class="card-body">
+            <div class="card-name">Name</div>
+            <a class="card-insta-btn">
+              <svg class="insta-icon" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+              </svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+        <div class="card founder-card">
+          <div class="card-photo-placeholder"></div>
+          <div class="card-body">
+            <div class="card-name">Name</div>
+            <a class="card-insta-btn">
+              <svg class="insta-icon" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+              </svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="juniors">
+      <div class="section-header">
+        <div class="section-eyebrow">Class of 2026</div>
+        <div class="section-title-cinzel">Juniors</div>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="juniors-grid" id="juniorsGrid">
+      </div>
+    </section>
+
+    <section class="section" id="elbayan">
+      <div class="section-header">
+        <div class="section-eyebrow">Competition</div>
+        <div class="section-title">ElBayan League</div>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="season-switcher-wrap">
+        <div class="season-switcher">
+          <button class="season-btn active" onclick="switchSeason(1, this)">
+            <span class="season-btn-label">First Term</span>
+          </button>
+          <div class="season-divider"></div>
+          <button class="season-btn" onclick="switchSeason(2, this)">
+            <span class="season-btn-label">Second Term</span>
+          </button>
+          <div class="season-slider" id="seasonSlider"></div>
+        </div>
+      </div>
+
+      <div class="season-content visible" id="season1">
+        <div style="display:flex; justify-content:center; margin-top:1rem;">
+          <div class="league-card founder-card league-photo-card"
+            style="width:min(600px, 90vw); background:transparent; box-shadow:none; border: 5px solid rgba(100,20,40,0.75); padding: 0; border-radius: 20px; transition: transform 0.7s cubic-bezier(.2,0,.1,1), box-shadow 0.7s cubic-bezier(.2,0,.1,1), border-color 0.7s ease, background 0.7s ease;">
+            <div style="width:100%;aspect-ratio:16/9;"></div>
+          </div>
+        </div>
+
+        <div class="winners-wrap" id="winnersWrap">
+
+          <div class="winners-bg-glow"></div>
+
+          <div class="podium-grid">
+
+            <div class="podium-card podium-second fadeup-card" style="--delay:0.15s">
+
+              <div class="podium-logo-area" style="margin-top:0.6rem;margin-bottom:0.2rem;">
+                <div style="width:130px;height:130px;"></div>
+              </div>
+              <div class="podium-body">
+                <div class="podium-place silver-text">2nd Place</div>
+                <div class="podium-team-name">Team 2</div>
+                <button class="view-team-btn" onclick="openTeamPage('Team 2', 1)">View Team</button>
+              </div>
+            </div>
+
+            <div class="podium-card podium-first fadeup-card" style="--delay:0s">
+              <div class="first-beam"></div>
+
+              <div class="podium-logo-area podium-logo-large" style="margin-top:0.6rem;margin-bottom:0.2rem;">
+                <div style="width:130px;height:130px;"></div>
+              </div>
+              <div class="podium-body">
+                <div class="podium-place gold-text">1st Place</div>
+                <div class="podium-team-name podium-team-name-large">Team 1</div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:7px;">
+                  <button class="view-team-btn" onclick="openTeamPage('Team 1', 1)">View Team</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="podium-card podium-third fadeup-card" style="--delay:0.3s">
+
+              <div class="podium-logo-area" style="margin-top:0.6rem;margin-bottom:0.2rem;">
+                <div style="width:130px;height:130px;"></div>
+              </div>
+              <div class="podium-body">
+                <div class="podium-place bronze-text">3rd Place</div>
+                <div class="podium-team-name">Team 3</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── TERM 1 AWARDS ── -->
+          <div style="
+          margin-top: 3rem;
+          padding: 0 1rem 2rem;
+          max-width: 900px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+        ">
+            <div style="
+            text-align: center;
+            margin-bottom: 2rem;
+          ">
+              <div
+                style="font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(200,160,160,0.5);margin-bottom:0.5rem;">
+                First Term</div>
+              <div
+                style="font-family:'Cinzel',serif;font-size:clamp(22px,4vw,36px);font-weight:700;color:#faf5f5;letter-spacing:2px;">
+                Awards</div>
+              <div
+                style="width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(184,184,184,0.4),transparent);margin:1rem auto 0;">
+              </div>
+            </div>
+
+            <div style="
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+          ">
+
+              <!-- Best Player -->
+              <div style="
+              background: linear-gradient(160deg, rgba(200,60,100,0.22) 0%, rgba(80,20,35,0.82) 55%, rgba(40,8,18,0.92) 100%);
+              backdrop-filter: blur(22px);
+              -webkit-backdrop-filter: blur(22px);
+              border: 1px solid rgba(180,50,85,0.3);
+              border-top: 1px solid rgba(210,80,110,0.48);
+              border-radius: 20px;
+              padding: 1.5rem 1rem 1.25rem;
+              text-align: center;
+              box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06) inset, 0 1.5px 0 rgba(200,60,100,0.25) inset;
+              position: relative;
+              overflow: hidden;
+            ">
+                <div
+                  style="position:absolute;inset:0;background:radial-gradient(ellipse 90% 55% at 50% 0%,rgba(200,60,100,0.15) 0%,transparent 70%);pointer-events:none;">
+                </div>
+                <div
+                  style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(210,80,110,0.55),transparent);pointer-events:none;">
+                </div>
+                <div style="position:relative;width:80px;height:80px;margin:0 auto 0.85rem;">
+                  <div style="width:80px;height:80px;border-radius:50%;background:rgba(80,20,35,0.7);border:1.5px solid rgba(200,60,100,0.6);"></div>
+                  
+                </div>
+                <div
+                  style="font-size:14px;color:rgba(220,100,140,0.9);margin-bottom:0.4rem;font-family:'Cairo',sans-serif;font-weight:900;white-space:nowrap;">
+                  Best Player</div>
+                <div
+                  style="font-family:'Cairo',sans-serif;font-size:clamp(14px,3.5vw,20px);font-weight:900;color:#fff;line-height:1.3;text-shadow:0 1px 8px rgba(0,0,0,0.4);">Name</div>
+              </div>
+
+              <!-- Top Scorer -->
+              <div style="
+              background: linear-gradient(160deg, rgba(200,60,100,0.22) 0%, rgba(80,20,35,0.82) 55%, rgba(40,8,18,0.92) 100%);
+              backdrop-filter: blur(22px);
+              -webkit-backdrop-filter: blur(22px);
+              border: 1px solid rgba(180,50,85,0.3);
+              border-top: 1px solid rgba(210,80,110,0.48);
+              border-radius: 20px;
+              padding: 1.5rem 1rem 1.25rem;
+              text-align: center;
+              box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06) inset, 0 1.5px 0 rgba(200,60,100,0.25) inset;
+              position: relative;
+              overflow: hidden;
+            ">
+                <div
+                  style="position:absolute;inset:0;background:radial-gradient(ellipse 90% 55% at 50% 0%,rgba(200,60,100,0.15) 0%,transparent 70%);pointer-events:none;">
+                </div>
+                <div
+                  style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(210,80,110,0.55),transparent);pointer-events:none;">
+                </div>
+                <div style="position:relative;width:80px;height:80px;margin:0 auto 0.85rem;">
+                  <div style="width:80px;height:80px;border-radius:50%;background:rgba(80,20,35,0.7);border:1.5px solid rgba(200,60,100,0.6);"></div>
+                  
+                </div>
+                <div
+                  style="font-size:14px;color:rgba(220,100,140,0.9);margin-bottom:0.4rem;font-family:'Cairo',sans-serif;font-weight:900;white-space:nowrap;">
+                  Top Scorer</div>
+                <div
+                  style="font-family:'Cairo',sans-serif;font-size:clamp(14px,3.5vw,20px);font-weight:900;color:#fff;line-height:1.3;text-shadow:0 1px 8px rgba(0,0,0,0.4);">Name</div>
+              </div>
+
+              <!-- Best Defender -->
+              <div style="
+              background: linear-gradient(160deg, rgba(200,60,100,0.22) 0%, rgba(80,20,35,0.82) 55%, rgba(40,8,18,0.92) 100%);
+              backdrop-filter: blur(22px);
+              -webkit-backdrop-filter: blur(22px);
+              border: 1px solid rgba(180,50,85,0.3);
+              border-top: 1px solid rgba(210,80,110,0.48);
+              border-radius: 20px;
+              padding: 1.5rem 1rem 1.25rem;
+              text-align: center;
+              box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06) inset, 0 1.5px 0 rgba(200,60,100,0.25) inset;
+              position: relative;
+              overflow: hidden;
+            ">
+                <div
+                  style="position:absolute;inset:0;background:radial-gradient(ellipse 90% 55% at 50% 0%,rgba(200,60,100,0.15) 0%,transparent 70%);pointer-events:none;">
+                </div>
+                <div
+                  style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(210,80,110,0.55),transparent);pointer-events:none;">
+                </div>
+                <div style="position:relative;width:80px;height:80px;margin:0 auto 0.85rem;">
+                  <div style="width:80px;height:80px;border-radius:50%;background:rgba(80,20,35,0.7);border:1.5px solid rgba(200,60,100,0.6);"></div>
+                  
+                </div>
+                <div
+                  style="font-size:14px;color:rgba(220,100,140,0.9);margin-bottom:0.4rem;font-family:'Cairo',sans-serif;font-weight:900;white-space:nowrap;">
+                  Best Defender</div>
+                <div
+                  style="font-family:'Cairo',sans-serif;font-size:clamp(14px,3.5vw,20px);font-weight:900;color:#fff;line-height:1.3;text-shadow:0 1px 8px rgba(0,0,0,0.4);">Name</div>
+              </div>
+
+              <!-- Best Goalkeeper -->
+              <div style="
+              background: linear-gradient(160deg, rgba(200,60,100,0.22) 0%, rgba(80,20,35,0.82) 55%, rgba(40,8,18,0.92) 100%);
+              backdrop-filter: blur(22px);
+              -webkit-backdrop-filter: blur(22px);
+              border: 1px solid rgba(180,50,85,0.3);
+              border-top: 1px solid rgba(210,80,110,0.48);
+              border-radius: 20px;
+              padding: 1.5rem 1rem 1.25rem;
+              text-align: center;
+              box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.06) inset, 0 1.5px 0 rgba(200,60,100,0.25) inset;
+              position: relative;
+              overflow: hidden;
+            ">
+                <div
+                  style="position:absolute;inset:0;background:radial-gradient(ellipse 90% 55% at 50% 0%,rgba(200,60,100,0.15) 0%,transparent 70%);pointer-events:none;">
+                </div>
+                <div
+                  style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(210,80,110,0.55),transparent);pointer-events:none;">
+                </div>
+                <div style="position:relative;width:80px;height:80px;margin:0 auto 0.85rem;">
+                  <div style="width:80px;height:80px;border-radius:50%;background:rgba(80,20,35,0.7);border:1.5px solid rgba(200,60,100,0.6);"></div>
+                  
+                </div>
+                <div
+                  style="font-size:14px;color:rgba(220,100,140,0.9);margin-bottom:0.4rem;font-family:'Cairo',sans-serif;font-weight:900;white-space:nowrap;">
+                  Best Goalkeeper</div>
+                <div
+                  style="font-family:'Cairo',sans-serif;font-size:clamp(14px,3.5vw,20px);font-weight:900;color:#fff;line-height:1.3;text-shadow:0 1px 8px rgba(0,0,0,0.4);">Name</div>
+              </div>
+
+            </div>
+          </div>
+          <!-- ── END TERM 1 AWARDS ── -->
+
+        </div>
+
+      </div>
+
+      <div class="season-content" id="season2">
+        <div style="display:flex; justify-content:center; margin-top:1rem;">
+          <div class="league-card founder-card league-photo-card"
+            style="width:min(600px, 90vw); background:transparent; box-shadow:none; border: 5px solid rgba(100,20,40,0.75); padding: 0; border-radius: 20px; transition: transform 0.7s cubic-bezier(.2,0,.1,1), box-shadow 0.7s cubic-bezier(.2,0,.1,1), border-color 0.7s ease, background 0.7s ease;">
+            <div style="width:100%;aspect-ratio:16/9;"></div>
+          </div>
+        </div>
+
+        <div class="winners-wrap">
+          <div class="winners-bg-glow"></div>
+          <div class="podium-grid">
+
+            <div class="podium-card podium-second fadeup-card" style="--delay:0.15s">
+
+              <div class="podium-logo-area" style="margin-top:0.6rem;margin-bottom:0.2rem;">
+                <div style="width:130px;height:130px;"></div>
+              </div>
+              <div class="podium-body">
+                <div class="podium-place silver-text">2nd Place</div>
+                <div class="podium-team-name">Team 1</div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:7px;">
+                  <button class="view-team-btn" onclick="openTeamPage('Team 1', 2)">View Team</button>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="podium-card podium-first fadeup-card" style="--delay:0s">
+              <div class="first-beam"></div>
+
+              <div class="podium-logo-area podium-logo-large" style="margin-top:0.6rem;margin-bottom:0.2rem;">
+                <div style="width:130px;height:130px;"></div>
+              </div>
+              <div class="podium-body">
+                <div class="podium-place gold-text">1st Place</div>
+                <div class="podium-team-name podium-team-name-large">Team 2</div>
+                <button class="view-team-btn" onclick="openTeamPage('Team 2', 2)">View Team</button>
+              </div>
+            </div>
+
+            <div class="podium-card podium-third fadeup-card" style="--delay:0.3s">
+
+              <div class="podium-logo-area" style="margin-top:0.6rem;margin-bottom:0.2rem;">
+                <div style="width:130px;height:130px;"></div>
+              </div>
+              <div class="podium-body">
+                <div class="podium-place bronze-text">3rd Place</div>
+                <div class="podium-team-name">Team 4</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="section-header">
+        <div class="section-eyebrow">Memories</div>
+        <div class="section-title">Memories</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-slot">
+          <div class="gallery-plus">+</div><span>Add Photo</span>
+        </div>
+        <div class="gallery-slot">
+          <div class="gallery-plus">+</div><span>Add Photo</span>
+        </div>
+        <div class="gallery-slot">
+          <div class="gallery-plus">+</div><span>Add Photo</span>
+        </div>
+        <div class="gallery-slot">
+          <div class="gallery-plus">+</div><span>Add Photo</span>
+        </div>
+        <div class="gallery-slot">
+          <div class="gallery-plus">+</div><span>Add Photo</span>
+        </div>
+        <div class="gallery-slot">
+          <div class="gallery-plus">+</div><span>Add Photo</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-header">
+        <div class="section-line"></div>
+        <div class="section-title">Follow Us</div>
+        <div class="section-line"></div>
+      </div>
+      <div style="position:relative; display:flex; justify-content:center; margin-top:2rem;">
+        
+        <a class="ig-link-card">
+          <svg style="width:48px;height:48px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;"
+            viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+          </svg>
+          <div class="ig-link-handle">username</div>
+          <div class="ig-link-sub">Click Here</div>
+        </a>
+      </div>
+    </section>
+
+    <div id="teamPageOverlay" class="team-page-overlay">
+      <div class="team-page-header">
+        <button class="team-page-back" onclick="closeTeamPage()">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="flex-shrink:0;">
+            <path d="M11 14L6 9L11 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          ElBayan League
+        </button>
+        <h1 id="teamPageTitle" class="team-page-title">Team Name</h1>
+      </div>
+      <div id="teamPageContent" class="team-page-content">
+      </div>
+    </div>
+
+    <!-- ── Player Profile Overlay ── -->
+    <div id="playerProfileOverlay" class="team-page-overlay" style="z-index:10000;">
+      <div class="team-page-header">
+        <button class="team-page-back" onclick="closePlayerProfile()">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink:0;">
+            <path d="M11 14L6 9L11 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          Back
+        </button>
+        <h1 class="team-page-title" style="font-size:clamp(18px,3vw,26px);letter-spacing:3px;text-transform:uppercase;">
+          Player Profile</h1>
+      </div>
+      <div id="playerProfileContent" class="team-page-content"></div>
+    </div>
+
+    <div id="creditsOverlay"
+      style="display:none; position:fixed; inset:0; z-index:9999; opacity:0; transition:opacity 0.7s ease; overflow:hidden;">
+
+      <div style="position:absolute; inset:0; z-index:0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(168,39,74,0.6) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(138,31,56,0.5) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 10% 60%, rgba(107,18,40,0.55) 0%, transparent 60%),
+        #2d0610;"></div>
+
+      <div id="creditsParticles" style="position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;"></div>
+
+      <div style="position:absolute; inset:0; z-index:2; pointer-events:none;
+      background: radial-gradient(ellipse 85% 85% at 50% 50%, transparent 55%, rgba(26,2,8,0.92) 100%);"></div>
+
+      <button id="creditsClose" onclick="closeCredits()" style="
+      position:absolute; top:24px; right:28px; z-index:10;
+      background:rgba(26,2,8,0.4);
+      border:0.5px solid rgba(200,160,160,0.2);
+      width:44px; height:44px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; opacity:0;
+      transition:all 0.3s cubic-bezier(.4,0,.2,1);
+      box-shadow: 0 0 20px rgba(168,39,74,0.15);"
+        onmouseover="this.style.borderColor='rgba(200,160,160,0.55)';this.style.background='rgba(168,39,74,0.25)';this.style.boxShadow='0 0 28px rgba(168,39,74,0.4)';this.style.transform='rotate(90deg) scale(1.1)'"
+        onmouseout="this.style.borderColor='rgba(200,160,160,0.2)';this.style.background='rgba(26,2,8,0.4)';this.style.boxShadow='0 0 20px rgba(168,39,74,0.15)';this.style.transform='rotate(0deg) scale(1)'">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="2" y1="2" x2="14" y2="14" stroke="rgba(220,180,180,0.75)" stroke-width="1.5"
+            stroke-linecap="round" />
+          <line x1="14" y1="2" x2="2" y2="14" stroke="rgba(220,180,180,0.75)" stroke-width="1.5"
+            stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <div id="creditsTitleScreen" style="
+      position:absolute; inset:0; z-index:5;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      opacity:0; transition:opacity 1s ease;">
+        <div style="
+        font-family:'Cairo',sans-serif;
+        font-size:clamp(13px,1.8vw,16px);
+        letter-spacing:8px; text-transform:uppercase;
+        color:rgba(255,255,255,0.35); margin-bottom:2rem;">
+          BLS · Juniors · 2026
+        </div>
+        <div style="
+        font-family:'Playfair Display',serif;
+        font-size:clamp(36px,7vw,80px);
+        font-weight:700; font-style:italic;
+        color:#fff; letter-spacing:3px;
+        text-shadow: 0 0 60px rgba(255,255,255,0.18), 0 0 120px rgba(255,255,255,0.08);
+        line-height:1.1; text-align:center; padding:0 2rem;">
+          The Last Chapter
+        </div>
+        <div style="
+        width:60px; height:1px; margin:2.5rem auto 0;
+        background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);"></div>
+      </div>
+
+      <div id="creditsScroller" style="
+      position:absolute; inset:0; z-index:4;
+      overflow:hidden; opacity:0; transition:opacity 1.4s ease;">
+
+        <div style="position:absolute; top:0; left:0; right:0; height:220px; z-index:2;
+        background:linear-gradient(to bottom, #2d0610 30%, transparent);"></div>
+        <div style="position:absolute; bottom:0; left:0; right:0; height:220px; z-index:2;
+        background:linear-gradient(to top, #2d0610 30%, transparent);"></div>
+
+        <div id="creditsTrack" style="
+        position:absolute; left:50%; transform:translateX(-50%) translateZ(0);
+        width:min(680px,92vw); text-align:center;
+        will-change:transform;">
+
+          <div style="height:100vh;"></div>
+
+          <div style="margin-bottom:1.8rem;">
+            <div
+              style="font-family:'Playfair Display',serif; font-size:clamp(28px,5vw,44px); font-weight:700; color:#fff; letter-spacing:2px; text-shadow:0 0 40px rgba(255,255,255,0.2);">
+              The Last Chapter</div>
+            <div style="width:40px; height:1px; background:rgba(255,255,255,0.3); margin:1.2rem auto;"></div>
+          </div>
+
+          <div id="namesContainer"></div>
+
+          <div data-end-card style="margin-top:3rem; padding-bottom:1rem;"></div>
+
+          <div style="height:100vh;"></div>
+        </div>
+      </div>
+
+      <div id="creditsLogoScreen" style="
+      position:absolute; inset:0; z-index:6;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      opacity:0; pointer-events:none; transition:opacity 1s ease;">
+        <div style="font-family:'Cairo',sans-serif;font-size:clamp(40px,8vw,80px);font-weight:900;color:#fff;letter-spacing:6px;text-shadow:0 0 40px rgba(168,39,74,0.6);">B·L·S</div>
+      </div>
+
+    </div>
+
+    
+
+    <footer class="page-footer">BLS · Juniors · 2026 </footer>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════
+     🎬  MEMORIES CINEMATIC PLAYER OVERLAY
+     ══════════════════════════════════════════════════════════════ -->
+
+
+  <div id="memoriesPlayerOverlay">
+
+    <!-- Burgundy bg + particles (always visible) -->
+    <div id="mpBgLayer"></div>
+    <div id="mpParticles"></div>
+
+    <button id="mpCloseBtn" onclick="closeMemoriesPlayer()" title="Close" class="mp-ripple-btn">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+        <line x1="2" y1="2" x2="14" y2="14" stroke="rgba(220,180,180,0.75)" stroke-width="1.5" stroke-linecap="round" />
+        <line x1="14" y1="2" x2="2" y2="14" stroke="rgba(220,180,180,0.75)" stroke-width="1.5" stroke-linecap="round" />
+      </svg>
+    </button>
+
+    <button id="mpShrinkBtn" title="Exit Fullscreen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+        <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 0 2 2v3" />
+      </svg>
+    </button>
+
+    <!-- Opening Title Card -->
+    <div id="mpOpening">
+      <div class="mp-op-badge">B · L · S</div>
+      <div class="mp-op-line"></div>
+      <div class="mp-op-title">BLS <span>Juniors</span></div>
+      <div class="mp-op-sub">Class of 2026 · Memories</div>
+      <div class="mp-op-line"></div>
+      <button class="mp-start-btn" id="mpStartBtn">
+        <div class="mp-play-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+        Play Memories
+      </button>
+    </div>
+
+    <!-- Stage -->
+    <div id="mpStage">
+      <!-- Video card -->
+      <div id="mpVideoCard">
+        <div id="mpSlotA" class="mp-slot mp-active"></div>
+        <div id="mpSlotB" class="mp-slot"></div>
+      </div>
+
+      <!-- Inline controls: timeline + buttons directly below card -->
+      <div id="mpInlineControls">
+        <!-- Progress bar + time -->
+        <div id="mpInlineProgress">
+          <div id="mpInlineProgressFill"></div>
+        </div>
+        <div id="mpTimeDisplay">
+          <span id="mpTimeCurrent">0:00</span>
+          <span id="mpTimeSep">/</span>
+          <span id="mpTimeDuration">0:00</span>
+        </div>
+        <!-- Buttons row: mute | skip-back | play | skip-fwd | fullscreen -->
+        <div id="mpInlineButtons">
+          <button class="mp-btn mp-ripple-btn" id="mpMuteBtn" title="Mute / Unmute">
+            <svg id="mpSoundOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22"
+              height="22">
+              <path d="M11 5L6 9H2v6h4l5 4V5z" />
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+            </svg>
+            <svg id="mpSoundOff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22"
+              height="22" style="display:none">
+              <path d="M11 5L6 9H2v6h4l5 4V5z" />
+              <line class="x-line x-line-1" x1="23" y1="9" x2="17" y2="15" stroke-linecap="round" />
+              <line class="x-line x-line-2" x1="17" y1="9" x2="23" y2="15" stroke-linecap="round" />
+            </svg>
+          </button>
+
+          <!-- Skip back 3s -->
+          <button class="mp-btn mp-skip-btn mp-ripple-btn" id="mpPrevBtn" title="Back 3s">
+            <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
+              fill="currentColor">
+              <g transform="translate(480,-440) scale(-1,1) translate(-480,440)">
+                <path
+                  d="M339.5-108.17q-65.5-28.16-114.33-77-48.84-48.83-77-114.33Q120-365 120-440t28.17-140.5q28.16-65.5 77-114.33 48.83-48.84 114.33-77Q405-800 480-800h16l-72.67-72.67 46-46.66L620.67-768 469.33-616.67l-46-46.66 70-70H480q-122.33 0-207.83 85.5-85.5 85.5-85.5 207.83 0 122.33 85.5 207.83 85.5 85.5 207.83 85.5 122.33 0 207.83-85.5 85.5-85.5 85.5-207.83H840q0 75-28.17 140.5-28.16 65.5-77 114.33-48.83 48.84-114.33 77Q555-80 480-80t-140.5-28.17Z" />
+              </g>
+              <g transform="translate(480,-440) scale(0.72) translate(-480,440)">
+                <path
+                  d="M392-310v-52h101q8 0 13.5-5.5T512-381v-42q0-8-5.5-13.5T493-442h-68v-52h68q8 0 13.5-5.5T512-513v-42q0-8-5.5-13.5T493-574H392v-52h101q32 0 54.5 22.5T570-549v34q0 17-8.5 31T538-463q15 11 23.5 27t8.5 35v38q0 32-22.5 54.5T494-286H392Z" />
+              </g>
+            </svg>
+          </button>
+
+          <button class="mp-btn mp-ripple-btn" id="mpPlayBtn" title="Play / Pause">
+            <svg id="mpPlayIcon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <svg id="mpPauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
+          </button>
+
+          <!-- Skip forward 3s -->
+          <button class="mp-btn mp-skip-btn mp-ripple-btn" id="mpNextBtn" title="Forward 3s">
+            <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
+              fill="currentColor">
+              <path
+                d="M339.5-108.17q-65.5-28.16-114.33-77-48.84-48.83-77-114.33Q120-365 120-440t28.17-140.5q28.16-65.5 77-114.33 48.83-48.84 114.33-77Q405-800 480-800h16l-72.67-72.67 46-46.66L620.67-768 469.33-616.67l-46-46.66 70-70H480q-122.33 0-207.83 85.5-85.5 85.5-85.5 207.83 0 122.33 85.5 207.83 85.5 85.5 207.83 85.5 122.33 0 207.83-85.5 85.5-85.5 85.5-207.83H840q0 75-28.17 140.5-28.16 65.5-77 114.33-48.83 48.84-114.33 77Q555-80 480-80t-140.5-28.17Z" />
+              <g transform="translate(480,-440) scale(0.72) translate(-480,440)">
+                <path
+                  d="M392-310v-52h101q8 0 13.5-5.5T512-381v-42q0-8-5.5-13.5T493-442h-68v-52h68q8 0 13.5-5.5T512-513v-42q0-8-5.5-13.5T493-574H392v-52h101q32 0 54.5 22.5T570-549v34q0 17-8.5 31T538-463q15 11 23.5 27t8.5 35v38q0 32-22.5 54.5T494-286H392Z" />
+              </g>
+            </svg>
+          </button>
+
+          <button class="mp-btn mp-ripple-btn" id="mpFullscreenBtn" title="Fullscreen">
+            <svg id="mpFsEnter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+            </svg>
+            <svg id="mpFsExit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              style="display:none">
+              <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 0 2 2v3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Film overlays -->
+    <div id="mpGrain"></div>
+    <div id="mpGrade"></div>
+    <div id="mpFade"></div>
+
+    <!-- Letterbox bars -->
+    <div class="mp-lb mp-lb-top" id="mpLbTop"></div>
+    <div class="mp-lb mp-lb-bot" id="mpLbBot"></div>
+
+    <!-- HUD (caption only — controls are now inline below card) -->
+    <div id="mpHud">
+      <div id="mpProgressTrack">
+        <div id="mpProgressFill"></div>
+      </div>
+      <div id="mpControls" style="display:none;">
+        <button class="mp-btn" id="mpPrevBtnOld" style="display:none;"></button>
+        <button class="mp-btn" id="mpPlayBtnOld" style="display:none;"></button>
+        <button class="mp-btn" id="mpNextBtnOld" style="display:none;"></button>
+        <button class="mp-btn" id="mpMuteBtnOld" style="display:none;"></button>
+      </div>
+    </div>
+
+    <!-- Caption -->
+    <div id="mpCaption">
+      <div id="mpCaptionText"></div>
+    </div>
+
+    <!-- End Screen -->
+    <div id="mpEndScreen">
+      <div class="mp-end-badge">B · L · S</div>
+      <div class="mp-end-line"></div>
+      <div class="mp-end-title">BLS Juniors · 2026</div>
+      <div class="mp-end-sub">· Memories Forever ·</div>
+      <div class="mp-end-line"></div>
+      <button class="mp-replay-btn" id="mpReplayBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+          <polyline points="1 4 1 10 7 10" />
+          <path d="M3.51 15a9 9 0 1 0 .49-4" />
+        </svg>
+        Replay
+      </button>
+      <button class="mp-replay-btn" onclick="closeMemoriesPlayer()" style="margin-top:10px;opacity:0.6;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+        Close
+      </button>
+    </div>
+
+  </div><!-- end #memoriesPlayerOverlay -->
+
+
+  <!-- ── RIPPLE EFFECT JS ── -->
+  <!-- ── BENCH BOTTOM SHEET ── -->
+
+  <div id="benchSheetBackdrop" onclick="closeBenchSheet()"></div>
+  <div id="benchSheet">
+    <div class="bench-sheet-handle">
+      <div class="bench-sheet-handle-bar"></div>
+    </div>
+    <div class="bench-sheet-header">
+      <div class="bench-sheet-title-row">
+        <svg style="width:13px;height:13px;fill:none;stroke:rgba(200,160,160,0.5);stroke-width:2;stroke-linecap:round;"
+          viewBox="0 0 16 16">
+          <path d="M2 5h12M4 9h8M6 13h4" />
+        </svg>
+        <span class="bench-sheet-title">Bench</span>
+      </div>
+      <button class="bench-sheet-close" onclick="closeBenchSheet()"></button>
+    </div>
+    <div id="benchSheetCards"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
