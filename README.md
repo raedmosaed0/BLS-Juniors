@@ -36,19 +36,13 @@ The website serves as a digital keepsake, preserving the spirit of the school ye
 - **JavaScript**
 - **Responsive Design**
 
-## 🚀 Live Website
+## 🌐 Live Website
 
-<p align="center">
-  <a href="https://bls-demo1.vercel.app/">
-    <strong>Explore BLS Juniors 2026</strong>
-  </a>
-</p>
+[![Live Website](https://img.shields.io/badge/Live%20Website-Visit%20Website-a8274a?style=for-the-badge&labelColor=1a0208)](https://bls-demo1.vercel.app/)
 
-## 🎯 Purpose
+## </> Developer
 
-The website brings the memories, activities, and achievements of the BLS Class of 2026 together in a single digital destination, creating a lasting collection of the experiences that define school life.
-
----
+Developed by **[Raed Mosaed](https://github.com/raedmosaed0)**
 
 <p align="center">
   <strong>BLS Juniors 2026 — Memories That Last Forever. ❤️</strong>
