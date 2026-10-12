@@ -31,10 +31,16 @@ The website serves as a digital keepsake, preserving the spirit of the school ye
 
 ## 🛠️ Tech Stack
 
-- **HTML5**
-- **CSS3**
-- **JavaScript**
-- **Responsive Design**
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=html,css,js,vercel,git,github&theme=dark" alt="Tech Stack">
+</p>
+
+- **HTML5** — Website structure and content.
+- **CSS3** — Styling, animations, and responsive layouts.
+- **JavaScript** — Interactive elements and website functionality.
+- **Responsive Design** — Optimized for desktop, tablet, and mobile devices.
+- **Vercel** — Website deployment and hosting.
+- **Git & GitHub** — Version control and project management.
 
 ## 🌐 Live Website
 
