@@ -48,6 +48,8 @@ By bringing together videos, activities, competitions, and special moments, the 
 - **Vercel** — Website deployment and hosting.
 - **Git & GitHub** — Version control and project management.
 
+---
+
 ## 🖥️ Website Preview
 
 <p align="center">
