@@ -3,31 +3,37 @@
   <p align="center">
     <strong>One School. Countless Memories. One Unforgettable Journey.</strong>
     <br>
-    A digital collection of school memories, activities, tournaments, and unforgettable moments from the BLS Class of 2026.
+    A digital home for the memories, achievements, and unforgettable moments of the BLS Class of 2026.
   </p>
-  <p align="center">
-    <a href="https://bls-demo1.vercel.app/">Live Website</a>
-  </p>
-</p>
-
----
+ 
+ ---
 
 ## 📖 About The Project
 
-**BLS Juniors 2026** is a dedicated website celebrating the school journey of the BLS Class of 2026. It brings together school memories, activities, sports tournaments, and special moments in one digital space.
+**BLS Juniors 2026** is a dedicated digital experience celebrating the journey of the BLS Class of 2026.
 
-Featuring a central memories video and content dedicated to school life, the website captures the experiences, achievements, and highlights that make this chapter of the students' journey memorable.
+Designed to bring together the moments that define school life, the website showcases memorable experiences, sports tournaments, student activities, and special highlights in one place.
 
-The website serves as a digital keepsake, preserving the spirit of the school years and making these memories accessible in one place.
+At its heart is a collection of memories that reflects the friendships, achievements, and shared experiences that make these school years truly unforgettable.
+
+More than just a website, **BLS Juniors 2026** serves as a digital keepsake — preserving the spirit of a graduating class and celebrating the moments that will be remembered long after the journey ends.
 
 ## ✨ Features
 
-- 🎓 **Class of 2026** — A dedicated experience celebrating the BLS Class of 2026.
-- 🎬 **Memories Video** — A central video showcasing memorable moments from school life.
-- 🏆 **Sports & Tournaments** — Showcasing school competitions, sporting events, and achievements.
-- 📸 **School Memories** — Bringing together memorable experiences and special moments.
-- 🎨 **Custom Design** — A visual identity tailored to the BLS Juniors theme.
-- 📱 **Responsive Design** — An adaptable layout for desktop, tablet, and mobile devices.
+- 🎓 **Class of 2026** — A dedicated digital experience celebrating the BLS graduating class.
+- 🎬 **Memories Video** — A central video experience highlighting memorable moments from school life.
+- 🏆 **Sports & Tournaments** — A showcase of school competitions, sporting events, and achievements.
+- 📸 **School Memories** — A collection of meaningful experiences and unforgettable highlights.
+- 🎨 **Custom Visual Identity** — A distinctive design inspired by the identity and spirit of BLS Juniors.
+- 📱 **Responsive Experience** — An adaptable layout designed for desktop, tablet, and mobile devices.
+- ⚡ **Interactive Interface** — A user-friendly browsing experience with interactive elements.
+- 🌐 **Accessible Online** — A centralized platform for exploring and revisiting class memories.
+
+## 🎯 Project Purpose
+
+The goal of **BLS Juniors 2026** is to create a central place where the school's most memorable experiences can be celebrated and preserved.
+
+By bringing together videos, activities, competitions, and special moments, the website transforms a collection of school memories into a lasting digital experience for the entire class.
 
 ## 🛠️ Tech Stack
 
@@ -42,6 +48,12 @@ The website serves as a digital keepsake, preserving the spirit of the school ye
 - **Vercel** — Website deployment and hosting.
 - **Git & GitHub** — Version control and project management.
 
+## 🖥️ Website Preview
+
+<p align="center">
+  <img src="./preview.png" alt="BLS Juniors 2026 Website Preview" width="100%">
+</p>
+
 ## 🌐 Live Website
 
 [![Live Website](https://img.shields.io/badge/Live%20Website-Visit%20Website-a8274a?style=for-the-badge&labelColor=1a0208)](https://bls-demo1.vercel.app/)
@@ -49,6 +61,8 @@ The website serves as a digital keepsake, preserving the spirit of the school ye
 ## </> Developer
 
 Developed by **[Raed Mosaed](https://github.com/raedmosaed0)**
+
+---
 
 <p align="center">
   <strong>BLS Juniors 2026 — Memories That Last Forever. ❤️</strong>
