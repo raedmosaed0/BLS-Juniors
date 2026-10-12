@@ -67,5 +67,5 @@ Developed by **[Raed Mosaed](https://github.com/raedmosaed0)**
 ---
 
 <p align="center">
-  <strong>BLS Juniors 2026 — Memories That Last Forever.</strong>
+  <strong>BLS・Juniors・2026</strong>
 </p>
