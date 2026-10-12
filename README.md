@@ -8,7 +8,7 @@
  
  ---
 
-## 📖 About The Project
+## ❤ About The Project
 
 **BLS Juniors 2026** is a dedicated digital experience celebrating the journey of the BLS Class of 2026.
 
@@ -35,7 +35,7 @@ The goal of **BLS Juniors 2026** is to create a central place where the school's
 
 By bringing together videos, activities, competitions, and special moments, the website transforms a collection of school memories into a lasting digital experience for the entire class.
 
-## 🛠️ Tech Stack
+## ⚙ Tech Stack
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=html,css,js,vercel,git,github&theme=dark" alt="Tech Stack">
@@ -67,5 +67,5 @@ Developed by **[Raed Mosaed](https://github.com/raedmosaed0)**
 ---
 
 <p align="center">
-  <strong>BLS Juniors 2026 — Memories That Last Forever. ❤️</strong>
+  <strong>BLS Juniors 2026 — Memories That Last Forever.</strong>
 </p>
